@@ -47,7 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveOrder = new System.Windows.Forms.Button();
             this.txtTotalOrder = new System.Windows.Forms.TextBox();
             this.txtUserOrder = new System.Windows.Forms.TextBox();
             this.dtpOrder = new System.Windows.Forms.DateTimePicker();
@@ -99,6 +99,7 @@
             this.btnSaveOrderDetail.TabIndex = 3;
             this.btnSaveOrderDetail.Text = "Thêm sản phẩm";
             this.btnSaveOrderDetail.UseVisualStyleBackColor = true;
+            this.btnSaveOrderDetail.Click += new System.EventHandler(this.btnSaveOrderDetail_Click);
             // 
             // numberOrder
             // 
@@ -106,14 +107,17 @@
             this.numberOrder.Name = "numberOrder";
             this.numberOrder.Size = new System.Drawing.Size(78, 22);
             this.numberOrder.TabIndex = 3;
+            this.numberOrder.ValueChanged += new System.EventHandler(this.numberOrder_ValueChanged);
             // 
             // comboProductOrder
             // 
+            this.comboProductOrder.DisplayMember = "2";
             this.comboProductOrder.FormattingEnabled = true;
             this.comboProductOrder.Location = new System.Drawing.Point(94, 191);
             this.comboProductOrder.Name = "comboProductOrder";
             this.comboProductOrder.Size = new System.Drawing.Size(195, 24);
             this.comboProductOrder.TabIndex = 1;
+            this.comboProductOrder.ValueMember = "2";
             this.comboProductOrder.SelectedValueChanged += new System.EventHandler(this.comboProductOrder_SelectedValueChanged);
             // 
             // panel2
@@ -222,7 +226,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnSaveOrder);
             this.groupBox1.Controls.Add(this.txtTotalOrder);
             this.groupBox1.Controls.Add(this.txtUserOrder);
             this.groupBox1.Controls.Add(this.dtpOrder);
@@ -237,29 +241,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tạo hóa đơn";
             // 
-            // button1
+            // btnSaveOrder
             // 
-            this.button1.Location = new System.Drawing.Point(89, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 28);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Tạo hóa đơn";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveOrder.Location = new System.Drawing.Point(89, 231);
+            this.btnSaveOrder.Name = "btnSaveOrder";
+            this.btnSaveOrder.Size = new System.Drawing.Size(115, 28);
+            this.btnSaveOrder.TabIndex = 3;
+            this.btnSaveOrder.Text = "Tạo hóa đơn";
+            this.btnSaveOrder.UseVisualStyleBackColor = true;
+            this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
             // 
             // txtTotalOrder
             // 
             this.txtTotalOrder.Location = new System.Drawing.Point(118, 149);
             this.txtTotalOrder.Name = "txtTotalOrder";
             this.txtTotalOrder.ReadOnly = true;
-            this.txtTotalOrder.Size = new System.Drawing.Size(171, 22);
+            this.txtTotalOrder.Size = new System.Drawing.Size(165, 22);
             this.txtTotalOrder.TabIndex = 2;
+            this.txtTotalOrder.Text = "0";
             // 
             // txtUserOrder
             // 
             this.txtUserOrder.Location = new System.Drawing.Point(118, 96);
             this.txtUserOrder.Name = "txtUserOrder";
             this.txtUserOrder.ReadOnly = true;
-            this.txtUserOrder.Size = new System.Drawing.Size(171, 22);
+            this.txtUserOrder.Size = new System.Drawing.Size(165, 22);
             this.txtUserOrder.TabIndex = 2;
             // 
             // dtpOrder
@@ -267,7 +273,7 @@
             this.dtpOrder.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpOrder.Location = new System.Drawing.Point(118, 42);
             this.dtpOrder.Name = "dtpOrder";
-            this.dtpOrder.Size = new System.Drawing.Size(171, 22);
+            this.dtpOrder.Size = new System.Drawing.Size(165, 22);
             this.dtpOrder.TabIndex = 1;
             // 
             // label3
@@ -329,7 +335,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveOrder;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvOrderDetail;
         private System.Windows.Forms.ComboBox comboProductOrder;

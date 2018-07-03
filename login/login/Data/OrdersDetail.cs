@@ -18,7 +18,8 @@ namespace login.Data
         public int OrdersDetailProductID { get; set; }
         public int OrdersDetailOrderID { get; set; }
         public int OrdersDetailQuanlity { get; set; }
-    
+
+        public int TotalMonneyDetail { get; set; }
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
     }
