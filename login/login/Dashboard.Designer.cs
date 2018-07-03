@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -124,6 +123,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.dgvOrderDetail = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.dgvOrder = new System.Windows.Forms.DataGridView();
+            this.index_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.txtSearchOrder = new System.Windows.Forms.TextBox();
@@ -155,22 +165,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.dgvOrder = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.dgvOrderDetail = new System.Windows.Forms.DataGridView();
-            this.index_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.index_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_order_Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -194,6 +194,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numberQuantityProduct)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.panel11.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -201,12 +207,6 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrand)).BeginInit();
             this.panelBrand.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1115,6 +1115,114 @@
             this.panel10.Size = new System.Drawing.Size(821, 355);
             this.panel10.TabIndex = 2;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.panel16);
+            this.groupBox2.Location = new System.Drawing.Point(409, 61);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(409, 299);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Chi tiết hóa đơn";
+            // 
+            // panel16
+            // 
+            this.panel16.AutoSize = true;
+            this.panel16.Controls.Add(this.dgvOrderDetail);
+            this.panel16.Location = new System.Drawing.Point(0, 25);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(409, 275);
+            this.panel16.TabIndex = 2;
+            // 
+            // dgvOrderDetail
+            // 
+            this.dgvOrderDetail.BackgroundColor = System.Drawing.Color.PaleTurquoise;
+            this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.index_orderDetail,
+            this.id_order_Detail,
+            this.name_orderDetail,
+            this.price_orderDetail,
+            this.quantity_orderDetail,
+            this.monney});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrderDetail.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvOrderDetail.Location = new System.Drawing.Point(0, 16);
+            this.dgvOrderDetail.Name = "dgvOrderDetail";
+            this.dgvOrderDetail.Size = new System.Drawing.Size(406, 256);
+            this.dgvOrderDetail.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel12);
+            this.groupBox1.Location = new System.Drawing.Point(0, 61);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(406, 294);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Danh sách hóa đơn";
+            // 
+            // panel12
+            // 
+            this.panel12.AutoSize = true;
+            this.panel12.Controls.Add(this.dgvOrder);
+            this.panel12.Location = new System.Drawing.Point(0, 25);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(400, 275);
+            this.panel12.TabIndex = 2;
+            // 
+            // dgvOrder
+            // 
+            this.dgvOrder.BackgroundColor = System.Drawing.Color.PaleTurquoise;
+            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.index_order,
+            this.id_order,
+            this.name_order,
+            this.time_order,
+            this.total_order});
+            this.dgvOrder.Location = new System.Drawing.Point(0, 16);
+            this.dgvOrder.Name = "dgvOrder";
+            this.dgvOrder.Size = new System.Drawing.Size(397, 256);
+            this.dgvOrder.TabIndex = 0;
+            this.dgvOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellClick);
+            // 
+            // index_order
+            // 
+            this.index_order.HeaderText = "STT";
+            this.index_order.Name = "index_order";
+            this.index_order.Width = 50;
+            // 
+            // id_order
+            // 
+            this.id_order.HeaderText = "ID";
+            this.id_order.Name = "id_order";
+            this.id_order.Width = 50;
+            // 
+            // name_order
+            // 
+            this.name_order.HeaderText = "Nhân viên lập";
+            this.name_order.Name = "name_order";
+            this.name_order.Width = 130;
+            // 
+            // time_order
+            // 
+            this.time_order.HeaderText = "Ngày lập";
+            this.time_order.Name = "time_order";
+            this.time_order.Width = 130;
+            // 
+            // total_order
+            // 
+            this.total_order.HeaderText = "Tổng tiền";
+            this.total_order.Name = "total_order";
+            this.total_order.Width = 150;
+            // 
             // panel11
             // 
             this.panel11.Controls.Add(this.button1);
@@ -1402,121 +1510,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "ID :";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.panel12);
-            this.groupBox1.Location = new System.Drawing.Point(0, 61);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 294);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách hóa đơn";
-            // 
-            // panel12
-            // 
-            this.panel12.AutoSize = true;
-            this.panel12.Controls.Add(this.dgvOrder);
-            this.panel12.Location = new System.Drawing.Point(0, 25);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(400, 275);
-            this.panel12.TabIndex = 2;
-            // 
-            // dgvOrder
-            // 
-            this.dgvOrder.BackgroundColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.index_order,
-            this.id_order,
-            this.name_order,
-            this.time_order,
-            this.total_order});
-            this.dgvOrder.Location = new System.Drawing.Point(0, 16);
-            this.dgvOrder.Name = "dgvOrder";
-            this.dgvOrder.Size = new System.Drawing.Size(397, 256);
-            this.dgvOrder.TabIndex = 0;
-            this.dgvOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellClick);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.panel16);
-            this.groupBox2.Location = new System.Drawing.Point(409, 61);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(409, 299);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Chi tiết hóa đơn";
-            // 
-            // panel16
-            // 
-            this.panel16.AutoSize = true;
-            this.panel16.Controls.Add(this.dgvOrderDetail);
-            this.panel16.Location = new System.Drawing.Point(0, 25);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(409, 275);
-            this.panel16.TabIndex = 2;
-            // 
-            // dgvOrderDetail
-            // 
-            this.dgvOrderDetail.BackgroundColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrderDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.index_orderDetail,
-            this.id_order_Detail,
-            this.name_orderDetail,
-            this.price_orderDetail,
-            this.quantity_orderDetail});
-            this.dgvOrderDetail.Location = new System.Drawing.Point(0, 16);
-            this.dgvOrderDetail.Name = "dgvOrderDetail";
-            this.dgvOrderDetail.Size = new System.Drawing.Size(406, 256);
-            this.dgvOrderDetail.TabIndex = 0;
-            // 
-            // index_order
-            // 
-            this.index_order.HeaderText = "STT";
-            this.index_order.Name = "index_order";
-            this.index_order.Width = 50;
-            // 
-            // id_order
-            // 
-            this.id_order.HeaderText = "ID";
-            this.id_order.Name = "id_order";
-            this.id_order.Width = 50;
-            // 
-            // name_order
-            // 
-            this.name_order.HeaderText = "Nhân viên lập";
-            this.name_order.Name = "name_order";
-            this.name_order.Width = 130;
-            // 
-            // time_order
-            // 
-            this.time_order.HeaderText = "Ngày lập";
-            this.time_order.Name = "time_order";
-            this.time_order.Width = 130;
-            // 
-            // total_order
-            // 
-            this.total_order.HeaderText = "Tổng tiền";
-            this.total_order.Name = "total_order";
-            this.total_order.Width = 150;
-            // 
             // index_orderDetail
             // 
             this.index_orderDetail.HeaderText = "STT";
@@ -1539,13 +1532,17 @@
             // 
             this.price_orderDetail.HeaderText = "Đơn giá";
             this.price_orderDetail.Name = "price_orderDetail";
-            this.price_orderDetail.Width = 50;
             // 
             // quantity_orderDetail
             // 
             this.quantity_orderDetail.HeaderText = "Số lượng";
             this.quantity_orderDetail.Name = "quantity_orderDetail";
             this.quantity_orderDetail.Width = 50;
+            // 
+            // monney
+            // 
+            this.monney.HeaderText = "Tiền trả";
+            this.monney.Name = "monney";
             // 
             // Dashboard
             // 
@@ -1586,6 +1583,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numberQuantityProduct)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -1597,14 +1602,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrand)).EndInit();
             this.panelBrand.ResumeLayout(false);
             this.panelBrand.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1752,5 +1749,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name_orderDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_orderDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity_orderDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monney;
     }
 }

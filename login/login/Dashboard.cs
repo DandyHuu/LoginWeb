@@ -187,7 +187,8 @@ namespace login
                                        Price = p.Price,
                                        ProductName = p.ProductName,
                                        OrdersDetailQuanlity = od.OrdersDetailQuanlity,
-                                       OrdersDetailOrderID = od.OrdersDetailOrderID
+                                       OrdersDetailOrderID = od.OrdersDetailOrderID,
+                                       TotalMonneyDetail = od.OrdersDetailQuanlity*p.Price
                                    }).ToList();
                              
             if (listOrderDetail.Count > 0)
@@ -200,6 +201,7 @@ namespace login
                     dgvOrderDetail.Rows[i].Cells["name_orderDetail"].Value = listOrderDetail[i].ProductName;
                     dgvOrderDetail.Rows[i].Cells["price_orderDetail"].Value = listOrderDetail[i].Price;
                     dgvOrderDetail.Rows[i].Cells["quantity_orderDetail"].Value = listOrderDetail[i].OrdersDetailQuanlity;
+                    dgvOrderDetail.Rows[i].Cells["monney"].Value = listOrderDetail[i].TotalMonneyDetail;
                 }
             }
         }
@@ -230,6 +232,7 @@ namespace login
             btnSaveProduct.Enabled = false;
             btnEditProduct.Enabled = true;
             btnRemoveProduct.Enabled = true;
+            panelProduct.Enabled = true;
         }
 
         private void dgvCategori_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -243,6 +246,7 @@ namespace login
             btnSaveCategories.Enabled = false;
             btnEditCate.Enabled = true;
             btnRemoveCate.Enabled = true;
+            paneCate.Enabled = true;
         }
 
         private void btnRemoveCate_Click(object sender, EventArgs e)
@@ -250,28 +254,44 @@ namespace login
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa không?", "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                int id = Convert.ToInt32(txtIdCate.Text);
-                Data.Category cate = new Data.Category();
-                cate = (from x in manage.Categories where x.CategoryID == id select x).FirstOrDefault();
-                manage.Entry(cate).State = System.Data.Entity.EntityState.Deleted;
-                manage.SaveChanges();
-                txtIdCate.Text = "";
-                txtCategori.Text = "";
-                MessageBox.Show("Bạn đã xóa thành công");
+                if (Role ==1)
+                {
+                    int id = Convert.ToInt32(txtIdCate.Text);
+                    Data.Category cate = new Data.Category();
+                    cate = (from x in manage.Categories where x.CategoryID == id select x).FirstOrDefault();
+                    manage.Entry(cate).State = System.Data.Entity.EntityState.Deleted;
+                    manage.SaveChanges();
+                    txtIdCate.Text = "";
+                    txtCategori.Text = "";
+                    MessageBox.Show("Bạn đã xóa thành công");
 
-                LoadGridViewCate();
+                    LoadGridViewCate();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn không có quyền xóa");
+                }
+
+
             }
         }
 
         private void btnEditCate_Click_1(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtIdCate.Text);
-            Data.Category cate = new Data.Category();
-            cate = (from x in manage.Categories where x.CategoryID == id select x).FirstOrDefault();
-            cate.CategoryName = txtCategori.Text;
-            manage.SaveChanges();
-            MessageBox.Show("Bạn đã sửa 1 mục");
-            LoadGridViewCate();
+            if (Role ==1)
+            {
+                int id = Convert.ToInt32(txtIdCate.Text);
+                Data.Category cate = new Data.Category();
+                cate = (from x in manage.Categories where x.CategoryID == id select x).FirstOrDefault();
+                cate.CategoryName = txtCategori.Text;
+                manage.SaveChanges();
+                MessageBox.Show("Bạn đã sửa 1 mục");
+                LoadGridViewCate();
+            }
+            else
+                {
+                MessageBox.Show("Bạn không có quyền sửa !");
+            }
         }
 
         private void btnNewCategori_Click(object sender, EventArgs e)
@@ -361,35 +381,49 @@ namespace login
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa không?", "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                int id = Convert.ToInt32(txtIdProduct.Text);
+                if (Role == 1)
+                {
+                    int id = Convert.ToInt32(txtIdProduct.Text);
+                    Data.Product pr = new Data.Product();
+                    pr = (from p in manage.Products where p.ProductID == id select p).FirstOrDefault();
+                    manage.Entry(pr).State = System.Data.Entity.EntityState.Deleted;
+                    manage.SaveChanges();
 
-                Data.Product pr = new Data.Product();
-                pr = (from p in manage.Products where p.ProductID == id select p).FirstOrDefault();
-                manage.Entry(pr).State = System.Data.Entity.EntityState.Deleted;
-                manage.SaveChanges();
-
-                MessageBox.Show("Bạn đã xóa thành công");
-                LoadGridViewProduct();
+                    MessageBox.Show("Bạn đã xóa thành công");
+                    LoadGridViewProduct();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn không có quyền xóa");
+                }
             }
         }
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtIdProduct.Text);
+            if (Role ==1 )
+            {
+                int id = Convert.ToInt32(txtIdProduct.Text);
 
-            Data.Product pr = new Data.Product();
-            pr = (from p in manage.Products where p.ProductID == id select p).FirstOrDefault();
-            pr.ProductName = txtNameProduct.Text;
-            pr.QuantityInStock = Convert.ToInt32(numberQuantityProduct.Value);
-            pr.Price = Convert.ToInt32(numberPriceProduct.Value);
-            pr.CategoryID = Convert.ToInt32(ComboCateProduct.SelectedValue);
-            pr.BrandID = Convert.ToInt32(ComboBrandProduct.SelectedValue);
-            pr.Avatar = "";
+                Data.Product pr = new Data.Product();
+                pr = (from p in manage.Products where p.ProductID == id select p).FirstOrDefault();
+                pr.ProductName = txtNameProduct.Text;
+                pr.QuantityInStock = Convert.ToInt32(numberQuantityProduct.Value);
+                pr.Price = Convert.ToInt32(numberPriceProduct.Value);
+                pr.CategoryID = Convert.ToInt32(ComboCateProduct.SelectedValue);
+                pr.BrandID = Convert.ToInt32(ComboBrandProduct.SelectedValue);
+                pr.Avatar = "";
 
-            manage.SaveChanges();
-            MessageBox.Show("Bạn đã sửa 1 mục");
+                manage.SaveChanges();
+                MessageBox.Show("Bạn đã sửa 1 mục");
 
-            LoadGridViewProduct();
+                LoadGridViewProduct();
+            }
+            
+            else
+                {
+                MessageBox.Show("Bạn không có quyền sửa !");
+            }
         }
         private void dgvBrand_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -405,6 +439,7 @@ namespace login
             btnSaveBrand.Enabled = false;
             btnEditBrand.Enabled = true;
             btnRemoveBrand.Enabled = true;
+            panelBrand.Enabled = true;
           
         }
 
@@ -443,16 +478,23 @@ namespace login
 
         private void btnEditBrand_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtIdBrand.Text);
-            Data.Brand br = new Data.Brand();
-            br = (from x in manage.Brands where x.BrandID == id select x).FirstOrDefault();
-            br.BrandName = txtNameBrand.Text;
-            br.BrandAddress = txtAddressBrand.Text;
-            br.BrandCellPhone = txtPhoneBrand.Text;
+            if (Role ==1)
+            {
+                int id = Convert.ToInt32(txtIdBrand.Text);
+                Data.Brand br = new Data.Brand();
+                br = (from x in manage.Brands where x.BrandID == id select x).FirstOrDefault();
+                br.BrandName = txtNameBrand.Text;
+                br.BrandAddress = txtAddressBrand.Text;
+                br.BrandCellPhone = txtPhoneBrand.Text;
 
-            manage.SaveChanges();
-            MessageBox.Show("Bạn đã sửa 1 mục");
-            LoadGridViewBrand();
+                manage.SaveChanges();
+                MessageBox.Show("Bạn đã sửa 1 mục");
+                LoadGridViewBrand();
+            }
+            else
+                {
+                MessageBox.Show("Bạn không có quyền sửa !");
+            }
         }
 
         private void btnRemoveBrand_Click(object sender, EventArgs e)
@@ -460,20 +502,27 @@ namespace login
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa không?", "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                int id = Convert.ToInt32(txtIdBrand.Text);
-                Data.Brand br = new Data.Brand();
-                br = (from b in manage.Brands where b.BrandID == id select b).FirstOrDefault();
-                manage.Entry(br).State = System.Data.Entity.EntityState.Deleted;
-                manage.SaveChanges();
+                if (Role == 1)
+                {
+                    int id = Convert.ToInt32(txtIdBrand.Text);
+                    Data.Brand br = new Data.Brand();
+                    br = (from b in manage.Brands where b.BrandID == id select b).FirstOrDefault();
+                    manage.Entry(br).State = System.Data.Entity.EntityState.Deleted;
+                    manage.SaveChanges();
 
-                txtIdBrand.Text = "";
-                txtNameBrand.Text = "";
-                txtAddressBrand.Text = "";
-                txtPhoneBrand.Text = "";
+                    txtIdBrand.Text = "";
+                    txtNameBrand.Text = "";
+                    txtAddressBrand.Text = "";
+                    txtPhoneBrand.Text = "";
 
-                MessageBox.Show("Bạn đã xóa thành công");
+                    MessageBox.Show("Bạn đã xóa thành công");
 
-                LoadGridViewBrand();
+                    LoadGridViewBrand();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn không có quyền xóa");
+                }
             }
         }
 
@@ -555,6 +604,7 @@ namespace login
                 btnRemoveEmployee.Enabled = true;
                 txtUsersName.ReadOnly = true;
                 txtPassword.ReadOnly = true;
+                panelEmployee.Enabled = true;
 
             }
         }

@@ -35,11 +35,6 @@
             this.comboProductOrder = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvOrderDetail = new System.Windows.Forms.DataGridView();
-            this.index_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_order_Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monneyOrderDetail = new System.Windows.Forms.TextBox();
             this.txtPriceOrderDetail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,6 +49,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.index_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_order_Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity_orderDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numberOrder)).BeginInit();
@@ -137,40 +138,12 @@
             this.id_order_Detail,
             this.name_orderDetail,
             this.price_orderDetail,
-            this.quantity_orderDetail});
+            this.quantity_orderDetail,
+            this.monney});
             this.dgvOrderDetail.Location = new System.Drawing.Point(0, 0);
             this.dgvOrderDetail.Name = "dgvOrderDetail";
             this.dgvOrderDetail.Size = new System.Drawing.Size(501, 155);
             this.dgvOrderDetail.TabIndex = 1;
-            // 
-            // index_orderDetail
-            // 
-            this.index_orderDetail.HeaderText = "STT";
-            this.index_orderDetail.Name = "index_orderDetail";
-            this.index_orderDetail.Width = 50;
-            // 
-            // id_order_Detail
-            // 
-            this.id_order_Detail.HeaderText = "ID Đơn hàng";
-            this.id_order_Detail.Name = "id_order_Detail";
-            this.id_order_Detail.Width = 120;
-            // 
-            // name_orderDetail
-            // 
-            this.name_orderDetail.HeaderText = "Món chọn";
-            this.name_orderDetail.Name = "name_orderDetail";
-            this.name_orderDetail.Width = 130;
-            // 
-            // price_orderDetail
-            // 
-            this.price_orderDetail.HeaderText = "Đơn giá (đ)";
-            this.price_orderDetail.Name = "price_orderDetail";
-            // 
-            // quantity_orderDetail
-            // 
-            this.quantity_orderDetail.HeaderText = "Số lượng";
-            this.quantity_orderDetail.Name = "quantity_orderDetail";
-            this.quantity_orderDetail.Width = 50;
             // 
             // monneyOrderDetail
             // 
@@ -303,6 +276,40 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày lập :";
             // 
+            // index_orderDetail
+            // 
+            this.index_orderDetail.HeaderText = "STT";
+            this.index_orderDetail.Name = "index_orderDetail";
+            this.index_orderDetail.Width = 50;
+            // 
+            // id_order_Detail
+            // 
+            this.id_order_Detail.HeaderText = "ID Đơn hàng";
+            this.id_order_Detail.Name = "id_order_Detail";
+            this.id_order_Detail.Width = 120;
+            // 
+            // name_orderDetail
+            // 
+            this.name_orderDetail.HeaderText = "Món chọn";
+            this.name_orderDetail.Name = "name_orderDetail";
+            this.name_orderDetail.Width = 130;
+            // 
+            // price_orderDetail
+            // 
+            this.price_orderDetail.HeaderText = "Đơn giá (đ)";
+            this.price_orderDetail.Name = "price_orderDetail";
+            // 
+            // quantity_orderDetail
+            // 
+            this.quantity_orderDetail.HeaderText = "Số lượng";
+            this.quantity_orderDetail.Name = "quantity_orderDetail";
+            this.quantity_orderDetail.Width = 50;
+            // 
+            // monney
+            // 
+            this.monney.HeaderText = "Tiền trả";
+            this.monney.Name = "monney";
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,5 +359,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name_orderDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_orderDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity_orderDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monney;
     }
 }
